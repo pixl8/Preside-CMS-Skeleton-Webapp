@@ -1,0 +1,7 @@
+/WEB-INF
+/uploads
+/logs
+/application/config/.*
+/preside
+/assets/node_modules
+.twgit*
