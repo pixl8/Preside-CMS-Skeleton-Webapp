@@ -38,9 +38,9 @@
     </rule>
 
     <rule>
-        <name>Redirect / to the admin home /myapp/</name>
+        <name>Redirect / to the admin home /{site_id}/</name>
         <from>^\/$</from>
-        <to type="permanent-redirect" last="true">/myapp/</to>
+        <to type="permanent-redirect" last="true">/{site_id}/</to>
     </rule>
 
     <rule>
