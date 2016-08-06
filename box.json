@@ -1,11 +1,11 @@
 {
     "name":"PresideCMS Skeleton Web Application",
-    "version":"1.0.2",
+    "version":"1.0.3",
     "author":"Pixl8 Interactive",
     "slug":"preside-skeleton-webapp",
     "createPackageDirectory":false,
     "type":"cms",
-    "location":"https://github.com/pixl8/Preside-CMS-Skeleton-Webapp/archive/v1.0.2.zip",
+    "location":"https://github.com/pixl8/Preside-CMS-Skeleton-Webapp/archive/v1.0.3.zip",
     "repository":{
         "type":"git",
         "url":"https://github.com/pixl8/Preside-CMS-Skeleton-Webapp"
