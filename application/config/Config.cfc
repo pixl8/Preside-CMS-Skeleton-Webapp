@@ -12,7 +12,7 @@ component extends="preside.system.config.Config" {
 		settings.sql_log_name        = "${site_id}";
 		settings.sql_log_level       = "information";
 
-		settings.features.${site_id} = { enabled=true };
+		settings.features[ "${site_id}" ] = { enabled=true };
 		settings.features.datamanager.enabled   = true;
 		settings.features.cms.enabled           = false;
 		settings.features.sitetree.enabled      = false;
@@ -38,7 +38,7 @@ component extends="preside.system.config.Config" {
 		StructDelete( settings.adminPermissions, "systemConfiguration" );
 		StructDelete( settings.adminPermissions, "assetmanager"        );
 
-		settings.adminPermissions.${site_id} = [ "access" ];
+		settings.adminPermissions[ "${site_id}" ] = [ "access" ];
 		settings.adminPermissions.presideobject = {
 			/*
 				TODO: add preside objects here that you'll need granting access to for object pickers. e.g.
