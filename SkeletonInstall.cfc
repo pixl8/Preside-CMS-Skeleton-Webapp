@@ -23,30 +23,32 @@ component extends="commandbox.system.BaseCommand" {
 		print.greenLine( "");
 		print.greenLine( "Thank you. Finalizing your template now..." );
 
-		var configCfcPath     = arguments.directory & "/application/config/Config.cfc";
-		var appCfcPath        = arguments.directory & "/Application.cfc";
-		var dashboardCfcPath  = arguments.directory & "/application/handlers/admin/Dashboard.cfc";
-		var urlRewriteXmlPath = arguments.directory & "/urlrewrite.xml";
-		var boxJsonPath       = arguments.directory & "/box.json";
-		var dash              = FileRead( dashboardCfcPath  );
-		var rewrite           = FileRead( urlRewriteXmlPath );
-		var config            = FileRead( configCfcPath );
-		var appcfc            = FileRead( appCfcPath    );
-		var boxjson           = FileRead( boxJsonPath    );
+		var configCfcPath       = arguments.directory & "/application/config/Config.cfc";
+		var appCfcPath          = arguments.directory & "/Application.cfc";
+		var dashboardCfcPath    = arguments.directory & "/application/handlers/admin/Dashboard.cfc";
+		var urlRewriteXmlPath   = arguments.directory & "/urlrewrite.xml";
+		var boxJsonPath         = arguments.directory & "/box.json";
+		var boxJsonTemplatePath = arguments.directory & "/box.json.template";
+		var dash                = FileRead( dashboardCfcPath  );
+		var rewrite             = FileRead( urlRewriteXmlPath );
+		var config              = FileRead( configCfcPath );
+		var appcfc              = FileRead( appCfcPath    );
+		var boxjson             = FileRead( boxJsonTemplatePath );
 
 		config  = ReplaceNoCase( config , "${site_id}", appid, "all" );
 		appcfc  = ReplaceNoCase( appcfc , "${site_id}", appid, "all" );
 		dash    = ReplaceNoCase( dash   , "${site_id}", appid, "all" );
 		rewrite = ReplaceNoCase( rewrite, "${site_id}", appid, "all" );
-		boxjson = ReplaceNoCase( boxjson, '"name":"PresideCMS Skeleton Web Application"', '"name":"#appName#"' );
-		boxjson = ReplaceNoCase( boxjson, '"author":"Pixl8 Interactive"', '"author":"#author#"' );
-		boxjson = ReplaceNoCase( boxjson, '"slug":"preside-skeleton-webapp"', '"slug":"#appid#"' );
+		boxjson = ReplaceNoCase( boxjson, '${site_name}', appName, "all" );
+		boxjson = ReplaceNoCase( boxjson, '${site_id}', appid, "all" );
+		boxjson = ReplaceNoCase( boxjson, '${author}', author, "all" );
 
 		FileWrite( configCfcPath    , config );
 		FileWrite( appCfcPath       , appcfc );
 		FileWrite( dashboardCfcPath , dash );
 		FileWrite( urlRewriteXmlPath, rewrite );
 		FileWrite( boxJsonPath      , boxjson );
+		FileDelete( boxJsonTemplatePath );
 
 		try {
 			FileMove( arguments.directory & "/application/i18n/myapp.properties"
