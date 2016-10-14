@@ -6,7 +6,7 @@
     "homepage":"https://github.com/pixl8/Preside-CMS-Skeleton-Webapp",
     "createPackageDirectory":false,
     "shortDescription":"A skeleton PresideCMS application to be used as a starting point for web applications that are purely admin based (no front-end CMS elements)",
-    "type":"cms",
+    "type":"preside-skeletons",
     "location":"https://github.com/pixl8/Preside-CMS-Skeleton-Webapp/archive/v1.0.6.zip",
     "repository":{
         "type":"git",
