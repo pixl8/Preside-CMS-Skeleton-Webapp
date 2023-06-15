@@ -67,6 +67,9 @@ component extends="commandbox.system.BaseCommand" {
 		} catch ( any e ){
 			print.yellowLine( "Warning: could not rename myapp.properties to #appid#.properties" );
 		};
+
+		command( "box install" ).params( "presidecms" ).run();
+		command( "box install" ).params( "preside-ext-alt-admin-theme" ).run();
 	}
 
 
