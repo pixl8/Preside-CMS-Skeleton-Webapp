@@ -69,6 +69,7 @@ component extends="commandbox.system.BaseCommand" {
 		};
 
 		command( "install" ).params( "presidecms" ).run();
+		command( "install" ).params( "preside-ext-launcher" ).run();
 		command( "install" ).params( "preside-ext-alt-admin-theme" ).run();
 	}
 

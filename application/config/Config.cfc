@@ -6,9 +6,12 @@ component extends="preside.system.config.Config" {
 
 		_setupAdminApplication();
 		_setupFeatures();
+		_setupLauncher();
 		_setupPermissionsAndRoles();
 		_setupAdminNavigation();
 		_setupMiscPresideSettings();
+		_setupInterceptors();
+		_setupLogboxLoggers();
 	}
 
 	public void function local() {
@@ -46,6 +49,13 @@ component extends="preside.system.config.Config" {
 		settings.features.formbuilder.enabled   = false;
 		settings.features.multilingual.enabled  = false;
 		settings.features.updateManager.enabled = false;
+	}
+
+	private void function _setupLauncher() {
+		/* We have installed preside-ext-launcher for you and you may want to configure it.
+
+		   See here for a guide: https://github.com/pixl8/preside-ext-launcher
+		*/
 	}
 
 	private function _setupPermissionsAndRoles() {
@@ -96,6 +106,40 @@ component extends="preside.system.config.Config" {
 		settings.default_log_level = "information";
 		settings.sql_log_name      = "${site_id}";
 		settings.sql_log_level     = "information";
+	}
+
+	private void function _setupInterceptors() {
+		/*
+			e.g.
+
+			interceptors = interceptors ?: [];
+			ArrayAppend( interceptors, {
+				  class      = "app.interceptors.MyApplicationInterceptor"
+				, properties = {}
+			} );
+
+			interceptorSettings.customInterceptionPoints = interceptorSettings.customInterceptionPoints ?: [];
+			interceptorSettings.customInterceptionPoints.append( "myCustomInterceptionPoint" );
+		*/
+	}
+
+	private void function _setupLogboxLoggers() {
+		/*
+			e.g.
+
+			logbox.appenders = logbox.appenders ?: {};
+
+			logbox.appenders.myAppender = {
+				  class      = 'coldbox.system.logging.appenders.RollingFileAppender'
+				, properties = { filePath=settings.logsMapping, filename="mylog.log", async=true }
+			};
+
+			logbox.root = { appenders='defaultLogAppender', levelMin='FATAL', levelMax='WARN' },
+			logbox.categories = logbox.categories ?: {};
+			logbox.categories.mylbcategory = { appenders='myAppender', levelMin='FATAL', levelMax='INFO' }
+
+			// etc.
+		*/
 	}
 
 }
