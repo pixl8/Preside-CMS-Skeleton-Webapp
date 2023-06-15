@@ -1,13 +1,13 @@
 {
-    "name":"PresideCMS Skeleton Web Application",
-    "version":"1.0.9",
+    "name":"Preside Admin Application Skeleton",
+    "version":"$VERSION_NUMBER",
     "author":"Pixl8 Interactive",
     "slug":"preside-skeleton-webapp",
     "homepage":"https://github.com/pixl8/Preside-CMS-Skeleton-Webapp",
     "createPackageDirectory":false,
-    "shortDescription":"A skeleton PresideCMS application to be used as a starting point for web applications that are purely admin based (no front-end CMS elements)",
+    "shortDescription":"An empty skeleton Admin-Only Preside application that has all CMS features disabled. The application",
     "type":"preside-skeletons",
-    "location":"https://github.com/pixl8/Preside-CMS-Skeleton-Webapp/archive/v1.0.9.zip",
+    "location":"${DOWNLOAD_URL}",
     "repository":{
         "type":"git",
         "url":"https://github.com/pixl8/Preside-CMS-Skeleton-Webapp"
