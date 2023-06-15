@@ -66,7 +66,7 @@ component extends="preside.system.config.Config" {
 	private function _setupAdminNavigation() {
 		ArrayDelete( settings.adminConfigurationMenuItems, "urlRedirects" );
 
-		settings.topNavItems = [];
+		settings.admin.topNavItems = [ "datamanager", "emailcenter" ];
 
 		/* See https://github.com/pixl8/preside-ext-alt-admin-theme and https://docs.preside.org/devguides/adminMenuItems.html
 		   for help with configuring the top nav for your admin
