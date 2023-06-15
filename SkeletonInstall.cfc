@@ -2,26 +2,36 @@ component extends="commandbox.system.BaseCommand" {
 
 	public void function postInstall( required string directory ) {
 		print.line();
-		var appid   = ask( "Enter an application ID (no spaces or special chars, e.g. office-manager): " );
-		while( !_validSlug( appid ) ) {
-			print.line();
-			print.redLine( "Invalid application ID. Must contain only letters, numbers, - or _.");
-			print.line();
-			appid   = ask( "Enter an application ID (no spaces or special chars, e.g. office-manager): " );
-		}
+		print.boldLine( "===================================" );
+		print.boldLine( "Preside Admin Skeleton setup wizard" );
+		print.boldLine( "===================================" );
+		print.line();
+		print.line( "You're nearly there. Answer a few questions and we'll get your new site setup and ready to go :)" );
+		print.line().toConsole();
 
-		var appName = ask( "Enter an application name (e.g. Office Manager): " );
+		var appid    = "";
+		var appName   = "";
+		var author    = "";
+
 		while( !Len(Trim( appName ) ) ) {
-			appName = ask( "Enter an application name (e.g. Office Manager): " );
+			appName = ask( "Enter a name for your application (e.g. My Cool App): " );
 		}
-
-		var author = ask( "Enter the application author (e.g. Super L33t Software co.): " );
 		while( !Len(Trim( author ) ) ) {
-			author = ask( "Enter the application author (e.g. Super L33t Software co.): " );
+			author = ask( "Enter the site author (e.g. Super L33t Software co.): " );
 		}
 
-		print.greenLine( "");
-		print.greenLine( "Thank you. Finalizing your template now..." );
+		do {
+			appid = ask( "Enter an application ID (no spaces or special chars, e.g. office-manager): " );
+			if ( !_validSlug( appid ) ) {
+				appid = "";
+				print.line();
+				print.redLine( "Invalid app ID. Must contain only letters, numbers, - or _.");
+				print.line();
+			}
+		} while( !Len( appid ) );
+
+		print.line( "" );
+		print.greenLine( "Thank you. Finalizing your template now..." ).toConsole();
 
 		var configCfcPath       = arguments.directory & "/application/config/Config.cfc";
 		var appCfcPath          = arguments.directory & "/Application.cfc";
