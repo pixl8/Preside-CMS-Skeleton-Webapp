@@ -1,7 +1,8 @@
 /WEB-INF
+/preside
 /uploads
 /logs
-/application/config/.*
-/preside
-/assets/node_modules
-.twgit*
+/application/config/.injectedConfiguration
+/application/extensions/*
+!/application/extensions/README.md
+.cfconfig.json
